@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
 import { ApolloProvider } from "react-apollo";
 
 import client from "./lib/apollo-client";
