@@ -19,12 +19,12 @@ const GameSettings = React.memo(
     return (
       <div
         style={{
+          borderBottom: "1px solid #eee",
           float: "left",
-          width: "100%",
           marginBottom: 20,
           marginTop: 20,
           paddingBottom: 20,
-          borderBottom: "1px solid #eee"
+          width: "100%"
         }}
       >
         <div style={{ float: "left", width: "50%" }}>

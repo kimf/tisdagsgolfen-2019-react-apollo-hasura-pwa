@@ -1,6 +1,6 @@
 import React from "react";
-import { Player } from "../../lib/initial-state";
 import { Image } from "../../lib/Image";
+import { Player } from "../../lib/initial-state";
 
 interface AvatarProps {
   player: Player;
@@ -25,11 +25,11 @@ const Avatar = ({
     <div
       key={player.id}
       style={{
-        width: 40,
-        height: 40,
-        fontWeight: "bold",
-        opacity: isDragging ? 0.5 : 1,
         cursor: isDragging ? "-webkit-grabbing" : "-webkit-grab",
+        fontWeight: "bold",
+        height: 40,
+        opacity: isDragging ? 0.5 : 1,
+        width: 40,
         ...style
       }}
     >
@@ -39,7 +39,7 @@ const Avatar = ({
         <div style={imageStyle}>
           {player.name
             .split(" ")
-            .map(n => n[0])
+            .map((n) => n[0])
             .join("")}
         </div>
       )}

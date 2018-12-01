@@ -21,16 +21,16 @@ export interface GameState {
 }
 
 const team = {
-  strokes: 5,
+  __typename: "Team",
   players: [],
-  __typename: 'Team'
+  strokes: 5
 };
 
 export const initialState: GameState = {
-  teamEvent: false,
-  strokesEvent: false,
   courseId: null,
   selectedPlayers: [],
-  teams: [{ ...team }, { ...team }],
-  stepIndex: 0
+  stepIndex: 0,
+  strokesEvent: false,
+  teamEvent: false,
+  teams: [{ ...team }, { ...team }]
 };

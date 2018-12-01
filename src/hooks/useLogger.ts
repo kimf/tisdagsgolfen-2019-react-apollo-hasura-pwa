@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import useLifecycles from './useLifecycles';
+import { useEffect } from "react";
+import useLifecycles from "./useLifecycles";
 
 const useLogger = (name: string, props: object) => {
   useLifecycles(

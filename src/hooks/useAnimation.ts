@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 
 // Usage
 // Call hook multiple times to get animated values with different start delays
@@ -7,8 +7,23 @@ import { useState, useEffect } from 'react';
 //   marginTop: animation2 * 200 - 100
 // }}
 
+// Some easing functions copied from:
+// https://github.com/streamich/ts-easing/blob/master/src/index.ts
+// Hardcode here or pull in a dependency
+interface Easing {
+  elastic: (n: number) => number;
+  inExpo: (n: number) => number;
+  linear: (n: number) => number;
+}
+const easing: Easing = {
+  elastic: (n) =>
+    n * (33 * n * n * n * n - 106 * n * n * n + 126 * n * n - 67 * n + 15),
+  inExpo: (n) => Math.pow(2, 10 * (n - 1)),
+  linear: (n) => n
+};
+
 function useAnimation(
-  easingName: 'linear' | 'elastic' | 'inExpo' = 'linear',
+  easingName: "linear" | "elastic" | "inExpo" = "linear",
   duration: number = 500,
   delay: number = 0
 ) {
@@ -22,27 +37,14 @@ function useAnimation(
   return easing[easingName](n);
 }
 
-// Some easing functions copied from:
-// https://github.com/streamich/ts-easing/blob/master/src/index.ts
-// Hardcode here or pull in a dependency
-interface Easing {
-  linear: (n: number) => number;
-  elastic: (n: number) => number;
-  inExpo: (n: number) => number;
-}
-const easing: Easing = {
-  linear: n => n,
-  elastic: n =>
-    n * (33 * n * n * n * n - 106 * n * n * n + 126 * n * n - 67 * n + 15),
-  inExpo: n => Math.pow(2, 10 * (n - 1))
-};
-
 function useAnimationTimer(duration: number = 1000, delay: number = 0) {
   const [elapsed, setTime] = useState(0);
 
   useEffect(
     () => {
-      let animationFrame: number, timerStop: NodeJS.Timeout, start: number;
+      let animationFrame: number;
+      let start: number;
+      let timerStop: NodeJS.Timeout;
 
       // Function to be executed on each animation frame
       function onFrame() {

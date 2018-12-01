@@ -1,4 +1,4 @@
-import invariant from 'invariant';
+import invariant from "invariant";
 
 invariant(
   process.env.REACT_APP_API_URL,

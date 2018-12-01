@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export interface Actions<T> {
   set: (list: T[]) => void;
@@ -13,9 +13,9 @@ const useList = <T>(initialList: T[] = []): [T[], Actions<T>] => {
   return [
     list,
     {
+      filter: (fn) => set(list.filter(fn)),
+      push: (entry) => set([...list, entry]),
       set,
-      push: entry => set([...list, entry]),
-      filter: fn => set(list.filter(fn)),
       sort: (fn?) => set([...list].sort(fn))
     }
   ];

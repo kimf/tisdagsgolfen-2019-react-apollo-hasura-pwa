@@ -19,19 +19,23 @@ interface Event {
 const settings = {
   arrows: false,
   dots: false,
+  easing: "ease-in-out",
   infinite: false,
-  speed: 350,
-  slidesToShow: 1,
   slidesToScroll: 1,
-  swipeToSlide: true,
-  easing: "ease-in-out"
+  slidesToShow: 1,
+  speed: 350,
+  swipeToSlide: true
 };
 
-const Events = React.memo(_ => (
+const Events = React.memo((_) => (
   <Query query={eventsQuery}>
     {({ data, error, loading }) => {
-      if (loading) return null;
-      if (error) return <div>{`Error! ${error.message}`}</div>;
+      if (loading) {
+        return null;
+      }
+      if (error) {
+        return <div>{`Error! ${error.message}`}</div>;
+      }
       if (data.events.length === 0) {
         return null;
       }

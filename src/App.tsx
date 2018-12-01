@@ -1,20 +1,20 @@
-import React, { Suspense, lazy } from "react";
 import { Router } from "@reach/router";
+import React, { lazy, Suspense } from "react";
 import { ApolloProvider } from "react-apollo";
 
+import Spinner from "./components/Shared/Spinner";
 import client from "./lib/apollo-client";
 import * as HistoryStack from "./lib/HistoryStack";
-import Spinner from "./components/Shared/Spinner";
-import useLocalstorage from "./hooks/useLocalstorage";
+
+// TODO: Only use in DEV!
+import { whyDidYouUpdate } from "why-did-you-update";
 
 const Home = lazy(() => import("./pages/Home"));
 const ScoringSetup = lazy(() => import("./pages/ScoringSetup"));
 
-// TODO: Only use in DEV!
-const { whyDidYouUpdate } = require("why-did-you-update");
 whyDidYouUpdate(React);
 
-const App = React.memo(_ => (
+const App = React.memo((_) => (
   <ApolloProvider client={client}>
     <HistoryStack.Provider>
       <Suspense fallback={<Spinner />}>

@@ -2,23 +2,25 @@ import React from "react";
 import { Query } from "react-apollo";
 
 import playersQuery from "../../graphql/queries/playersQuery";
-import { Player } from "../../lib/initial-state";
 import useSessionStorage from "../../hooks/useSessionstorage";
+import { Player } from "../../lib/initial-state";
 import togglePlayer from "../../lib/togglePlayer";
-import Avatar from "./Avatar";
 
 const PlayerPicker = React.memo(() => {
   const [selectedPlayers, setSelectedPlayers] = useSessionStorage(
     "players",
     [] as Player[]
   );
-  const [teamEvent] = useSessionStorage("teamEvent");
 
   return (
     <Query query={playersQuery}>
       {({ data, error, loading }) => {
-        if (loading) return null;
-        if (error) return <div>`Error! ${error.message}`</div>;
+        if (loading) {
+          return null;
+        }
+        if (error) {
+          return <div>`Error! ${error.message}`</div>;
+        }
 
         const { players } = data;
 
@@ -28,7 +30,7 @@ const PlayerPicker = React.memo(() => {
             <ul>
               {players.map((player: Player) => {
                 const isSelected =
-                  selectedPlayers.find(sp => sp.id === player.id) !== undefined;
+                  selectedPlayers.find((sp) => sp.id === player.id) !== undefined;
                 return (
                   <li
                     key={player.id}

@@ -18,11 +18,11 @@ interface LeaderboardPlayer {
   };
 }
 
-const Leaderboard = React.memo(_ => (
+const Leaderboard = React.memo((_) => (
   <Query query={leaderboardQuery}>
     {({ data, error, loading }) => {
-      if (loading) return null;
-      if (error) return <div>{`Error! ${error.message}`}</div>;
+      if (loading) { return null; }
+      if (error) { return <div>{`Error! ${error.message}`}</div>; }
       if (data.leaderboard.length === 0) {
         return null;
       }

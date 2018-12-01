@@ -4,20 +4,19 @@ interface StringKeyObject {
 }
 
 export const colors: StringKeyObject = {
-  red: '#FF3B30',
-  orange: '#FF9500',
-  yellow: '#FFCC00',
-  green: '#4CD964',
-  tealBlue: '#5AC8FA',
-  blue: '#007AFF',
-  purple: '#5856D6',
-  pink: '#FF2D55',
-
-  white: '#FFFFFF',
-  customGray: '#EFEFF4',
-  lightGray: '#E5E5EA',
-  lightGray2: '#D1D1D6',
-  midGray: '#C7C7CC',
-  gray: '#8E8E93',
-  black: '#000000'
+  black: "#000000",
+  blue: "#007AFF",
+  customGray: "#EFEFF4",
+  gray: "#8E8E93",
+  green: "#4CD964",
+  lightGray: "#E5E5EA",
+  lightGray2: "#D1D1D6",
+  midGray: "#C7C7CC",
+  orange: "#FF9500",
+  pink: "#FF2D55",
+  purple: "#5856D6",
+  red: "#FF3B30",
+  tealBlue: "#5AC8FA",
+  white: "#FFFFFF",
+  yellow: "#FFCC00"
 };

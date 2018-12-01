@@ -1,12 +1,12 @@
 import React from "react";
 import { Query } from "react-apollo";
 
-import scoringSeshQuery from "../graphql/queries/scoringSessionsQuery";
 import ActiveScoringSession from "../components/ActiveScoringSession";
-import Leaderboard from "../components/Leaderboard";
 import Events from "../components/Events";
+import Leaderboard from "../components/Leaderboard";
+import scoringSeshQuery from "../graphql/queries/scoringSessionsQuery";
 
-const Home = React.memo(_ => (
+const Home = React.memo((_) => (
   <div className="wrapper">
     <section>
       <header className="header main">
@@ -19,8 +19,8 @@ const Home = React.memo(_ => (
 
       <Query query={scoringSeshQuery}>
         {({ data, error, loading }) => {
-          if (loading) return null;
-          if (error) return <div>{`Error! ${error.message}`}</div>;
+          if (loading) { return null; }
+          if (error) { return <div>{`Error! ${error.message}`}</div>; }
           if (data.scoringSessions.length === 0) {
             return null;
           }

@@ -20,8 +20,8 @@ const CoursePicker = React.memo(
     return (
       <Query query={coursesQuery}>
         {({ data, error, loading }) => {
-          if (loading) return null;
-          if (error) return <div>`Error! ${error.message}`</div>;
+          if (loading) { return null; }
+          if (error) { return <div>`Error! ${error.message}`</div>; }
 
           if (data.courses.length === 0) {
             return null;

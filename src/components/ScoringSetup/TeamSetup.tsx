@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import { DragDropContext } from "react-dnd";
 import TouchBackend from "react-dnd-touch-backend";
 
+import useSessionStorage from "../../hooks/useSessionstorage";
+import { GameTeam, Player } from "../../lib/initial-state";
 import DraggablePlayer, { PlayerPreview } from "./DraggablePlayer";
 import DroppableTeam from "./DroppableTeam";
-import { Player, GameTeam } from "../../lib/initial-state";
-import useSessionStorage from "../../hooks/useSessionstorage";
 
 interface Team {
   strokes: number;
   players: Player[];
 }
-const team = { strokes: 0, players: [] } as Team;
+const newTeam = { strokes: 0, players: [] } as Team;
 
 class Body extends Component<{
   teams: Team[];
@@ -25,7 +25,7 @@ class Body extends Component<{
   removeTeam: (index: number) => void;
   selectedPlayers: Player[];
 }> {
-  render() {
+  public render() {
     const {
       teams,
       receivePlayer,
@@ -35,7 +35,7 @@ class Body extends Component<{
       removeTeam
     } = this.props;
 
-    const playersLeft = selectedPlayers.filter(sp => !sp.isInTeam).length > 0;
+    const playersLeft = selectedPlayers.filter((sp) => !sp.isInTeam).length > 0;
 
     return (
       <>
@@ -65,7 +65,7 @@ class Body extends Component<{
                     className="avatars"
                     style={{ paddingLeft: 10, paddingTop: 10 }}
                   >
-                    {team.players.map(player => (
+                    {team.players.map((player) => (
                       <DraggablePlayer
                         key={`teamPlayer_${index}_${player.id}`}
                         player={player}
@@ -109,14 +109,14 @@ const BodyWithDragDrop = DragDropContext(
   TouchBackend({ enableMouseEvents: true })
 )(Body);
 
-const TeamList = React.memo(_ => {
+const TeamList = React.memo((_) => {
   const [selectedPlayers, setSelectedPlayers] = useSessionStorage("players");
   const [teams, setTeams] = useSessionStorage("teams", [
-    { ...team },
-    { ...team }
+    { ...newTeam },
+    { ...newTeam }
   ]);
 
-  const addTeam = () => setTeams([...teams, { ...team }]);
+  const addTeam = () => setTeams([...teams, { ...newTeam }]);
 
   const markPlayerAsAvailable = (player: Player) => {
     const playerIndex = selectedPlayers.findIndex(
@@ -127,7 +127,7 @@ const TeamList = React.memo(_ => {
   };
 
   const removeTeam = (index: number) => {
-    teams[index].players.map(markPlayerAsAvailable);
+    teams[index].players.forEach(markPlayerAsAvailable);
     teams.splice(index, 1);
     setTeams([...teams]);
   };
@@ -151,7 +151,7 @@ const TeamList = React.memo(_ => {
 
     if (oldTeamIndex !== undefined) {
       const oldPlayerIndex = teams[oldTeamIndex].players.findIndex(
-        tp => Number(tp.id) === Number(playerId)
+        (tp) => Number(tp.id) === Number(playerId)
       );
       teams[oldTeamIndex].players.splice(oldPlayerIndex, 1);
     } else {

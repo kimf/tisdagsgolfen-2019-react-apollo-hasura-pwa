@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export type UseToggle = (
   state: boolean
@@ -7,11 +7,11 @@ export type UseToggle = (
   (nextValue?: boolean) => void // toggle
 ];
 
-const useToggle: UseToggle = state => {
+const useToggle: UseToggle = (state) => {
   const [value, setValue] = useState<boolean>(state);
 
   const toggle = (nextValue?: boolean) => {
-    if (typeof nextValue !== 'undefined') {
+    if (typeof nextValue !== "undefined") {
       setValue(!!nextValue);
       return;
     }

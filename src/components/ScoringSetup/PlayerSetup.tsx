@@ -1,10 +1,10 @@
 import React from "react";
-import { Player } from "../../lib/initial-state";
 import useSessionStorage from "../../hooks/useSessionstorage";
-import Avatar from "./Avatar";
 import { Image } from "../../lib/Image";
+import { Player } from "../../lib/initial-state";
+import Avatar from "./Avatar";
 
-const PlayerList = React.memo(_ => {
+const PlayerList = React.memo((_) => {
   const [selectedPlayers, setSelectedPlayers] = useSessionStorage("players");
 
   const askForNewStrokes = (playerIndex: number, playerName: string) => {

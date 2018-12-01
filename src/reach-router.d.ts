@@ -2,9 +2,9 @@
 //
 // See Module Augmentation:
 // https://www.typescriptlang.org/docs/handbook/declaration-merging.html
-import { Attributes } from 'react';
+import { Attributes } from "react";
 
-declare module 'react' {
+declare module "react" {
   interface Attributes {
     path?: string;
   }

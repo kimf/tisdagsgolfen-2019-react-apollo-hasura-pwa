@@ -1,6 +1,6 @@
-import ApolloClient from 'apollo-boost';
+import ApolloClient from "apollo-boost";
 
-import { API_URL, API_TOKEN } from './config';
+import { API_TOKEN /*, API_URL*/ } from "./config";
 // import { initialState } from "../lib/initial-state";
 // clientState: {
 //   defaults: {
@@ -10,10 +10,10 @@ import { API_URL, API_TOKEN } from './config';
 // },
 
 const client = new ApolloClient({
-  uri: '/v1alpha1/graphql', // API_URL,
   headers: {
-    'x-hasura-access-key': API_TOKEN
-  }
+    "x-hasura-access-key": API_TOKEN
+  },
+  uri: "/v1alpha1/graphql" // API_URL,
 });
 
 export default client;

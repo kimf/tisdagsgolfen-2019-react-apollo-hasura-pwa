@@ -1,4 +1,4 @@
-import { Player } from './initial-state';
+import { Player } from "./initial-state";
 
 const togglePlayer = (
   player: Player,
@@ -7,7 +7,7 @@ const togglePlayer = (
   setData: (players: Player[]) => void
 ) => {
   if (shouldRemove) {
-    const index = selectedPlayers.findIndex(sp => sp.id === player.id);
+    const index = selectedPlayers.findIndex((sp) => sp.id === player.id);
     if (index !== -1) {
       selectedPlayers.splice(index, 1);
     }

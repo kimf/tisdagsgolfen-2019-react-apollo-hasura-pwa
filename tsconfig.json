@@ -1,4 +1,7 @@
 {
+  "compileOnSave": true,
+  "exclude": ["node_modules"],
+  "include": ["src"],
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -25,6 +28,5 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "es2015"
-  },
-  "include": ["src"]
+  }
 }

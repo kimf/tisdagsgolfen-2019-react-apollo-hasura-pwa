@@ -44,7 +44,7 @@
       "check-open-brace",
       "check-whitespace"
     ],
-    "quotemark": [true, "single", "jsx-double"],
+    "quotemark": [true, "double", "jsx-double"],
     "radix": true,
     "semicolon": [true, "always", "ignore-bound-class-methods"],
     "switch-default": true,
@@ -77,5 +77,6 @@
       "check-separator",
       "check-type"
     ]
-  }
+  },
+  "extends": ["tslint:recommended", "tslint-sonarts"]
 }
