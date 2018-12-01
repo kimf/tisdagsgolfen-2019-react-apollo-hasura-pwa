@@ -2,7 +2,6 @@ import React from "react";
 import useSessionStorage from "../../hooks/useSessionstorage";
 import { Image } from "../../lib/Image";
 import { Player } from "../../lib/initial-state";
-import Avatar from "./Avatar";
 
 const PlayerList = React.memo((_) => {
   const [selectedPlayers, setSelectedPlayers] = useSessionStorage("players");

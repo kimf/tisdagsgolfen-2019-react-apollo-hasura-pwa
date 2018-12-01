@@ -1,7 +1,11 @@
 {
   "compileOnSave": true,
-  "exclude": ["node_modules"],
-  "include": ["src"],
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src"
+  ],
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -10,8 +14,12 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "react",
-    "lib": ["es6", "esnext.asynciterable", "dom"],
+    "jsx": "preserve",
+    "lib": [
+      "es6",
+      "esnext.asynciterable",
+      "dom"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
