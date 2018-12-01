@@ -23,7 +23,7 @@ export interface GameState {
 const team = {
   strokes: 5,
   players: [],
-  __typename: "Team"
+  __typename: 'Team'
 };
 
 export const initialState: GameState = {

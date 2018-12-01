@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-const isClient = typeof window === "object";
+const isClient = typeof window === 'object';
 
 const useLocalStorage = <T>(
   key: string,
@@ -14,7 +14,7 @@ const useLocalStorage = <T>(
   const [state, setState] = useState<T>(() => {
     try {
       const localStorageValue = localStorage.getItem(key);
-      if (typeof localStorageValue !== "string") {
+      if (typeof localStorageValue !== 'string') {
         localStorage.setItem(
           key,
           raw ? String(initialValue) : JSON.stringify(initialValue)
@@ -23,7 +23,7 @@ const useLocalStorage = <T>(
       } else {
         return raw
           ? localStorageValue
-          : JSON.parse(localStorageValue || "null");
+          : JSON.parse(localStorageValue || 'null');
       }
     } catch {
       // If user is in private mode or has storage restriction

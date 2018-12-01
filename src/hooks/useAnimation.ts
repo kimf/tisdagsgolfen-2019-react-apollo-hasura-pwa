@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 // Usage
 // Call hook multiple times to get animated values with different start delays
@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 // }}
 
 function useAnimation(
-  easingName: "linear" | "elastic" | "inExpo" = "linear",
+  easingName: 'linear' | 'elastic' | 'inExpo' = 'linear',
   duration: number = 500,
   delay: number = 0
 ) {
@@ -37,7 +37,7 @@ const easing: Easing = {
   inExpo: n => Math.pow(2, 10 * (n - 1))
 };
 
-function useAnimationTimer(duration = 1000, delay = 0) {
+function useAnimationTimer(duration: number = 1000, delay: number = 0) {
   const [elapsed, setTime] = useState(0);
 
   useEffect(
@@ -60,7 +60,7 @@ function useAnimationTimer(duration = 1000, delay = 0) {
         timerStop = setTimeout(() => {
           cancelAnimationFrame(animationFrame);
           setTime(Date.now() - start);
-        }, duration);
+        },                     duration);
 
         // Start the loop
         start = Date.now();

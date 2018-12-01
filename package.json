@@ -32,7 +32,8 @@
     "@types/react-dom": "^16.0.10",
     "@types/react-slick": "^0.23.2",
     "react-scripts": "2.1.1",
-    "typescript": "^3.1.6"
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

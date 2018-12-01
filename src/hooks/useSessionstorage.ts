@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-const isClient = typeof window === "object";
+const isClient = typeof window === 'object';
 
 const useSessionStorage = <T>(
   key: string,
@@ -14,7 +14,7 @@ const useSessionStorage = <T>(
   const [state, setState] = useState<T>(() => {
     try {
       const sessionStorageValue = sessionStorage.getItem(key);
-      if (typeof sessionStorageValue !== "string") {
+      if (typeof sessionStorageValue !== 'string') {
         sessionStorage.setItem(
           key,
           raw ? String(initialValue) : JSON.stringify(initialValue)
@@ -23,7 +23,7 @@ const useSessionStorage = <T>(
       } else {
         return raw
           ? sessionStorageValue
-          : JSON.parse(sessionStorageValue || "null");
+          : JSON.parse(sessionStorageValue || 'null');
       }
     } catch {
       // If user is in private mode or has storage restriction

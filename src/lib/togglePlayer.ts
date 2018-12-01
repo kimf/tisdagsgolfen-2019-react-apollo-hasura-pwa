@@ -1,4 +1,4 @@
-import { Player } from "./initial-state";
+import { Player } from './initial-state';
 
 const togglePlayer = (
   player: Player,
