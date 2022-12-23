@@ -21,15 +21,19 @@ interface LeaderboardPlayer {
 const Leaderboard = React.memo((_) => (
   <Query query={leaderboardQuery}>
     {({ data, error, loading }) => {
-      if (loading) { return null; }
-      if (error) { return <div>{`Error! ${error.message}`}</div>; }
+      if (loading) {
+        return null;
+      }
+      if (error) {
+        return <div>{`Error! ${error.message}`}</div>;
+      }
       if (data.leaderboard.length === 0) {
         return null;
       }
       return (
         <ul className="leaderboard">
           {data.leaderboard.map((playa: LeaderboardPlayer) => (
-            <li>
+            <li key={playa.user.id}>
               <strong>{playa.rank}</strong>
               <span>{playa.name}</span>
               <strong>{playa.totalPoints} p</strong>

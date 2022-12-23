@@ -6,7 +6,7 @@ const scoringSessionsQuery = gql`
   query {
     scoringSessions: scoring_sessions {
       id
-      starts_at
+      starts_at: created_at
       team_event
       course {
         id

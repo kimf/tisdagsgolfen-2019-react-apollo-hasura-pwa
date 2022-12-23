@@ -5,7 +5,7 @@ import { unstable_createResource as createResource } from "react-cache";
 
 export const ImgResource = createResource(src => {
   return new Promise((resolve, reject) => {
-    if (src == null) return resolve();
+    if (src == null) { return resolve(); }
     const image = new Image();
     image.src = src;
     image.onload = resolve;
@@ -24,7 +24,7 @@ export const ImgDecodeResource = createResource(
       return Promise.resolve();
     }
   },
-  src => `${src}${Math.floor(Date.now() / 1000)}`
+  src => `${src}${Math.floor(Date.now() / 1000)}`,
 );
 
 class ImageErrorContainer extends React.Component {
@@ -47,7 +47,7 @@ export const Img = props => {
 
 const imgStyle = {
   objectFit: "cover",
-  pointerEvents: "none"
+  pointerEvents: "none",
 };
 
 const InnerImg = React.memo(
@@ -74,7 +74,7 @@ const InnerImg = React.memo(
         />
       )}
     </>
-  )
+  ),
 );
 
 const AsyncImage = React.memo(({ style, maxDuration = 300, ...rest }) => {

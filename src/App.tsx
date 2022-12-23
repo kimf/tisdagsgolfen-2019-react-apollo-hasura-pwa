@@ -15,16 +15,18 @@ const ScoringSetup = lazy(() => import("./pages/ScoringSetup"));
 whyDidYouUpdate(React);
 
 const App = React.memo((_) => (
-  <ApolloProvider client={client}>
-    <HistoryStack.Provider>
-      <Suspense fallback={<Spinner />}>
-        <Router>
-          <ScoringSetup path="/play" />
-          <Home path="/" />
-        </Router>
-      </Suspense>
-    </HistoryStack.Provider>
-  </ApolloProvider>
+  <React.StrictMode>
+    <ApolloProvider client={client}>
+      <HistoryStack.Provider>
+        <Suspense fallback={<Spinner />}>
+          <Router>
+            <ScoringSetup path="/play" />
+            <Home path="/" />
+          </Router>
+        </Suspense>
+      </HistoryStack.Provider>
+    </ApolloProvider>
+  </React.StrictMode>
 ));
 
 export default App;

@@ -1,0 +1,200 @@
+query_templates: []
+tables:
+  - array_relationships: []
+    delete_permissions: []
+    event_triggers: []
+    insert_permissions: []
+    object_relationships:
+      - comment: null
+        name: course
+        using:
+          manual_configuration:
+            column_mapping:
+              course_id: id
+            remote_table: courses
+    select_permissions: []
+    table: holes
+    update_permissions: []
+  - array_relationships: []
+    delete_permissions: []
+    event_triggers: []
+    insert_permissions: []
+    object_relationships: []
+    select_permissions: []
+    table: seasons
+    update_permissions: []
+  - array_relationships: []
+    delete_permissions: []
+    event_triggers: []
+    insert_permissions: []
+    object_relationships:
+      - comment: null
+        name: user
+        using:
+          manual_configuration:
+            column_mapping:
+              user_id: id
+            remote_table: users
+      - comment: null
+        name: event
+        using:
+          manual_configuration:
+            column_mapping:
+              event_id: id
+            remote_table: events
+      - comment: null
+        name: season
+        using:
+          manual_configuration:
+            column_mapping:
+              season_id: id
+            remote_table: seasons
+    select_permissions: []
+    table: scores
+    update_permissions: []
+  - array_relationships:
+      - comment: null
+        name: live_scores
+        using:
+          manual_configuration:
+            column_mapping:
+              id: user_id
+            remote_table: live_scores
+      - comment: null
+        name: event_teams
+        using:
+          manual_configuration:
+            column_mapping:
+              id: user_ids
+            remote_table: event_teams
+      - comment: null
+        name: scores
+        using:
+          manual_configuration:
+            column_mapping:
+              id: user_id
+            remote_table: scores
+      - comment: null
+        name: scoring_sessions
+        using:
+          manual_configuration:
+            column_mapping:
+              id: user_id
+            remote_table: scoring_sessions
+    delete_permissions: []
+    event_triggers: []
+    insert_permissions: []
+    object_relationships: []
+    select_permissions: []
+    table: users
+    update_permissions: []
+  - array_relationships: []
+    delete_permissions: []
+    event_triggers: []
+    insert_permissions: []
+    object_relationships:
+      - comment: null
+        name: user
+        using:
+          manual_configuration:
+            column_mapping:
+              user_id: id
+            remote_table: users
+      - comment: null
+        name: event
+        using:
+          manual_configuration:
+            column_mapping:
+              event_id: id
+            remote_table: events
+      - comment: null
+        name: scoring_session
+        using:
+          manual_configuration:
+            column_mapping:
+              scoring_session_id: id
+            remote_table: scoring_sessions
+    select_permissions: []
+    table: live_scores
+    update_permissions: []
+  - array_relationships: []
+    delete_permissions: []
+    event_triggers: []
+    insert_permissions: []
+    object_relationships:
+      - comment: null
+        name: user
+        using:
+          manual_configuration:
+            column_mapping:
+              user_id: id
+            remote_table: users
+      - comment: null
+        name: course
+        using:
+          manual_configuration:
+            column_mapping:
+              course_id: id
+            remote_table: courses
+    select_permissions: []
+    table: scoring_sessions
+    update_permissions: []
+  - array_relationships:
+      - comment: null
+        name: users
+        using:
+          manual_configuration:
+            column_mapping:
+              user_ids: id
+            remote_table: users
+    delete_permissions: []
+    event_triggers: []
+    insert_permissions: []
+    object_relationships:
+      - comment: null
+        name: event
+        using:
+          manual_configuration:
+            column_mapping:
+              event_id: id
+            remote_table: events
+    select_permissions: []
+    table: event_teams
+    update_permissions: []
+  - array_relationships:
+      - comment: null
+        name: holes
+        using:
+          manual_configuration:
+            column_mapping:
+              id: course_id
+            remote_table: holes
+    delete_permissions: []
+    event_triggers: []
+    insert_permissions: []
+    object_relationships: []
+    select_permissions: []
+    table: courses
+    update_permissions: []
+  - array_relationships:
+      - comment: null
+        name: season
+        using:
+          manual_configuration:
+            column_mapping:
+              season_id: id
+            remote_table: seasons
+      - comment: null
+        name: course
+        using:
+          manual_configuration:
+            column_mapping:
+              course_id: id
+            remote_table: courses
+    delete_permissions: []
+    event_triggers: []
+    insert_permissions: []
+    object_relationships: []
+    select_permissions: []
+    table: events
+    update_permissions: []

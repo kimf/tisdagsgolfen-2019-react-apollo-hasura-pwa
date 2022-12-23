@@ -2,9 +2,13 @@ import { useEffect } from "react";
 
 const useLifecycles = (mount: () => void, unmount?: () => void) => {
   useEffect(() => {
-    if (mount) { mount(); }
+    if (mount) {
+      mount();
+    }
     return () => {
-      if (unmount) { unmount(); }
+      if (unmount) {
+        unmount();
+      }
     };
   },        []);
 };
